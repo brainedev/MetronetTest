@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+	<title>Team Introduction</title>
+    <meta name="author" content="W. Brian Williams" />
+    <meta name="application-name" content="Team Introduction" />
+    <meta name="description" content="MetroNet Developer Test - Brian Williams (2018-07-26) - 8.4 Simple Web Form" />
+	<style type="text/css">
+        /* css to verically & horizontally center our form and introduction box */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-size: large;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        div.wrapper {
+            display: table;
+            width: 100%;
+            height: 100%;
+            background-color: darkgrey;
+        }
+        div.content {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        /* css to make our form and box look good */
+		label { 
+            display: block;
+            color: cornflowerblue;
+		}
+        div.title {
+            display: block;
+            width: 97.5%;
+            font-size: x-large;
+            text-align: center;
+            color: royalblue;
+        }
+        #frmTeamIntro {
+            display: inline-block;
+            background-color: white;
+            width: 50%;
+            text-align: left;
+            border: 1px inset royalblue;
+        }
+            #frmTeamIntro * {
+                padding: 10px;
+                width: 97.5%;
+            }
+            #btnIntroduceSelf {
+                text-align: center;
+                width: 100%;
+                font-size: x-large;
+            }
+            #funFact {
+                height: 100px;
+            }
+        #dvIntroductionBox {
+            display: none;
+            background-color: white;
+            width: 50%;
+            text-align: left;
+            border: 1px inset royalblue;
+        }
+            #dvIntroductionBox * {
+                padding: 10px;
+                width: 97.5%;
+            }
+            #dvIntroductionBox span {
+                padding-left: 30px;
+                font-size: xx-large;
+            }
+            #dvIntroductionBox a {
+                font-size: x-large;
+                display: inline-block;
+                text-align: center;
+            }
+	</style>
+	<script type="text/JavaScript">
+	<!-- // Legacy tag to prevent code display in non-JavaScript browser
+        // Predefine the min required lengths for our form fields
+        const iYourNameMinLength = 5, iFunFactMinLength = 20;
+
+        // This code will run as soon as all elements have been loaded in the browser window
+        window.onload = function () {
+            // Declare obj variables and use the DOM to set them to the HTML elements we need to manipulate in this application
+            var yourName = document.getElementById("yourName");
+            var dispYourName = document.getElementById("dispYourName");
+            var funFact = document.getElementById("funFact");
+            var dispFunFact = document.getElementById("dispFunFact");
+			var dvIntroductionBox = document.getElementById("dvIntroductionBox");
+            var frmTeamIntro = document.getElementById("frmTeamIntro");
+            var aResetForm = document.getElementById("aResetForm");
+
+            // Set placeholders to let user know the min number of characters expected for each field
+            yourName.placeholder = 'Min ' + iYourNameMinLength.toString() + ' characters';
+            funFact.placeholder = 'Min ' + iFunFactMinLength.toString() + ' characters';
+
+            // This is what happens when the form is submitted by clicking the 'Introduce Yourself' button
+            frmTeamIntro.onsubmit = function () {
+                // Validate the input fields
+                if (validateForm(yourName.value, funFact.value)) {
+                    // Set the HTML span elements to display the text entered in these fields by the user
+                    setTextNode(dispYourName, yourName.value);
+                    setTextNode(dispFunFact, funFact.value);
+
+                    // Hide the form and show the 'Introduction Box'
+                    frmTeamIntro.style.display = 'none';
+                    dvIntroductionBox.style.display = 'inline-block';
+                }
+                // Return false to negate the default action of submitting the form, as this is a serverless client-side only web app
+				return false;
+			}
+
+            // This is what happens when the 'Introduction Box' is displayed and the 'Introduce Someone Else' hyperlink is clicked
+			aResetForm.onclick = function() {
+                // Set the HTML span elements back to empty strings, to await the next introduction entry
+				setTextNode(dispYourName, '');
+				setTextNode(dispFunFact, '');
+
+                // Reset the team intro form using the form element's built-in reset method
+                frmTeamIntro.reset();
+
+                // Hide the 'Introduction Box' and show the form
+                dvIntroductionBox.style.display = 'none';
+                frmTeamIntro.style.display = 'inline-block';
+
+                // Return false to negate the default action of navigating to the non-existant URL in the HREF attribute tag, as this is a serverless client-side only web app
+				return false;
+			}
+		};
+
+        // Function to validate the form fields yourName and funFact
+        function validateForm(sYourName, sFunFact) {
+            // Some helper functions to validate if the fields contain data, and if it is of the required length
+            var validateRequired = function (str) {
+                return !(!str || !str.length);
+            };
+            var validateLength = function (str, iMinLen) {
+                return !(!str || str.length < iMinLen);
+            };
+
+            // Declare a string to contain the error message
+            var sErrMsg = "";
+
+            // Validate yourName field
+            if (sYourName) sYourName = sYourName.trim();
+            if (!validateRequired(sYourName))
+                sErrMsg += "Your Name is a required field.\r\n";
+            else if (!validateLength(sYourName, iYourNameMinLength))
+                sErrMsg += "Your Name must be at least " + iYourNameMinLength + " characters.\r\n";
+
+            // Validate funFact field
+            if (sFunFact) sFunFact = sFunFact.trim();
+            if (!validateRequired(sFunFact))
+                sErrMsg += "Fun Fact is a required field.\r\n";
+            else if (!validateLength(sFunFact, iFunFactMinLength))
+                sErrMsg += "Fun Fact must be at least " + iFunFactMinLength + " characters.\r\n";
+
+            // If there is an error, display it in an alert message and return false because the fields failed validation
+            if (sErrMsg.length) {
+                sErrMsg = "Please correct the following errors and try again:\r\n\r\n" + sErrMsg;
+                alert(sErrMsg);
+                return false;
+            }
+            // Otherwise, return true because the fields passed validation
+            return true;
+        }
+
+        // Cross-browser function to set the value of the text node of an HTML element without resorting to .innerHTML or .innerText
+        function setTextNode(objElement, sNewText) {
+            var cNode;
+            if (objElement.hasChildNodes()) {
+                cNode = objElement.firstChild;
+                cNode.deleteData(0, cNode.data.length);
+                cNode.appendData(sNewText);
+            } else {
+                cNode = document.createTextNode(sNewText);
+                objElement.appendChild(cNode);
+            }
+            cNode = null;
+        }
+	//-->
+	</script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <noscript>This form requires JavaScript. Please enable it or use a brower that supports it.</noscript>
+            <form id="frmTeamIntro" name="frmTeamIntro" method="GET" action="#">
+                <div class="title">
+                    Team Introduction
+                </div>
+                <div>
+                    <label id="lblYourName" for="yourName">Your Name: </label>
+                    <input id="yourName" name="yourName" maxlength="50" type="text" />
+                </div>
+                <div>
+                    <label id="lblFunFact" for="funFact">Give Us a Fun Fact About Yourself: </label>
+                    <textarea id="funFact" name="funFact" maxlength="1024"></textarea>
+                </div>
+                <div>
+                    <input id="btnIntroduceSelf" name="btnIntroduceSelf" type="submit" value="Introduce Yourself" />
+                </div>
+            </form>
+            <div id="dvIntroductionBox">
+                <div class="title">
+                    Introduction Box
+                </div>
+                <div>
+                    <label id="lblDispYourName">Your Name: </label>
+                    <span id="dispYourName"></span>
+                </div>
+                <div>
+                    <label id="lblDispFunFact">Fun Fact: </label>
+                    <span id="dispFunFact"></span>
+                </div>
+                <div>
+                    <a id="aResetForm" href="#">Introduce Someone Else</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

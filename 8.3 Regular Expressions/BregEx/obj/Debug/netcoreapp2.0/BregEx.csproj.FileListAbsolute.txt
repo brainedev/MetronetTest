@@ -1,0 +1,11 @@
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\bin\Debug\netcoreapp2.0\BregEx.deps.json
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\bin\Debug\netcoreapp2.0\BregEx.runtimeconfig.json
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\bin\Debug\netcoreapp2.0\BregEx.runtimeconfig.dev.json
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\bin\Debug\netcoreapp2.0\BregEx.dll
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\bin\Debug\netcoreapp2.0\BregEx.pdb
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\obj\Debug\netcoreapp2.0\BregEx.csprojResolveAssemblyReference.cache
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\obj\Debug\netcoreapp2.0\BregEx.csproj.CoreCompileInputs.cache
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\obj\Debug\netcoreapp2.0\BregEx.AssemblyInfoInputs.cache
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\obj\Debug\netcoreapp2.0\BregEx.AssemblyInfo.cs
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\obj\Debug\netcoreapp2.0\BregEx.dll
+C:\Users\Brian\OneDrive\Documents\Inbox\Brian Metronet Test\BregEx\BregEx\obj\Debug\netcoreapp2.0\BregEx.pdb

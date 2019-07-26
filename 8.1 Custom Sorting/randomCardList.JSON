@@ -1,0 +1,12 @@
+{ cards: [
+    { suit: "Hearts", value: "7" },
+    { suit: "Spades", value: "A" },
+    { suit: "Clubs", value: "3" },
+    { suit: "Diamonds", value: "2" }, 
+    { suit: "Hearts", value: "A" },
+    { suit: "Spades", value: "J" },
+    { suit: "Diamonds", value: "Q" },
+    { suit: "Hearts", value: "Q" },
+    { suit: "Clubs", value: "K" },
+    { suit: "Diamonds", value: "5" }
+] }
